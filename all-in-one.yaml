@@ -243,5 +243,22 @@ spec:
   kibanaRef:
     name: "kbdev"
 
+---
 
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kbdev-kb-http-ingress
+  namespace: devoops
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              service:
+                name: kbdev-kb-http
+                port:
+                  number: 5601
+            path: /kibana
+            pathType: Prefix
 
