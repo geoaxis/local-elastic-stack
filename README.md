@@ -20,4 +20,4 @@ All elastic operator stuff is installed in elastic-system, while the stack it sl
  
 ## Considerations 
  - This setup is meant for testing purposes only (to facilitate local development). It uses checked in default passwords/tokens on purpose. DON'T use those passwords and tokens in production. ALternatively comment out the lines that set the passwords/tokens and ECK will generate them for you witin K8s Secrets.
- - This sample uses Elastic enterprise features using ECK [licensce management](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-licensing.html) features. Please check the [EULA](https://www.elastic.co/eula) for the 30 day trial this software is distributed under. 
+ - This sample uses Elastic enterprise features using ECK [license management](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-licensing.html) features. Please check the [EULA](https://www.elastic.co/eula) for the 30 day trial this software is distributed under. 
