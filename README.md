@@ -7,6 +7,9 @@ As an optional step this setup installed nginx-ingress, which is installed using
 
 All elastic operator stuff is installed in elastic-system, while the stack it slef (elasticsearch, kibana, beats, apm) are  installed in a namespace called [devoops](https://www.youtube.com/watch?v=Pg3uPXTDFbk).  
 
+![image](https://user-images.githubusercontent.com/72706/120246030-4e8db400-c26f-11eb-86a3-2087bc113fc0.png)
+
+
 
 ## Steps
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) (This should work on docker for mac as well, but I have not tested it). Enable kubernetes on it.
