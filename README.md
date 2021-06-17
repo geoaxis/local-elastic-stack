@@ -30,13 +30,12 @@ helm install ingress-nginx ingress-nginx/ingress-nginx
 kubectl apply -f all-in-one.yaml
 ```
 
+- Browse to http://kubernetes.docker.internal/kibana and use elastic/elastic to login.
 You can also port forward kibana as following
 
 ```
 kubectl port-forward service/kbdev-kb-http 5601 -n devoops
 ```
-
-- Browse to http://kubernetes.docker.internal/kibana and use elastic/elastic to login.
 
 ## Test
  - Use the following [sample](https://github.com/geoaxis/cachingdemo/releases/tag/step6) to test the application
