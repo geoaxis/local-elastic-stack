@@ -13,8 +13,30 @@ All elastic operator stuff is installed in elastic-system, while the stack it sl
 ## Steps
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) (This should work on docker for mac as well, but I have not tested it). Enable kubernetes on it.
 - Install [ECK](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-deploy-eck.html).
+
+```
+kubectl apply -f https://download.elastic.co/downloads/eck/1.6.0/all-in-one.yaml
+```
+
 - (Optional) Install nginx ingress using [helm](https://kubernetes.github.io/ingress-nginx/deploy/#using-helm).
-- Apply the all-in-one.yml using ```kubectl apply -f all-in-one.yaml```
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx
+```
+
+- Apply the all-in-one.yml using 
+```
+kubectl apply -f local-elastic-k8s.yaml
+kubectl apply -f kibana-nginx.yaml
+```
+
+You can also port forward kibana as following
+
+```
+kubectl port-forward service/kbdev-kb-http 5601 -n devoops
+```
+
 - Browse to http://kubernetes.docker.internal/kibana and use elastic/elastic to login.
 
 ## Test
