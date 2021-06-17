@@ -27,7 +27,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx
 
 - Apply the all-in-one.yml using 
 ```
-kubectl apply -f local-elastic-k8s.yaml
+kubectl apply -f all-in-one.yaml
 ```
 
 You can also port forward kibana as following
