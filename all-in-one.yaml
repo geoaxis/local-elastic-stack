@@ -261,4 +261,3 @@ spec:
                   number: 5601
             path: /kibana
             pathType: Prefix
-
