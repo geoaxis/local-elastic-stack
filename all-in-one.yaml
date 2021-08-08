@@ -33,7 +33,7 @@ metadata:
   namespace: devoops
 spec:
   type: filebeat
-  version: 7.13.0
+  version: 7.14.0
   elasticsearchRef:
     name: esdev
   kibanaRef:
@@ -148,7 +148,7 @@ metadata:
   name: esdev
   namespace: devoops
 spec:
-  version: 7.13.0
+  version: 7.14.0
   nodeSets:
   - name: default
     count: 1
@@ -176,11 +176,12 @@ metadata:
   name: kbdev
   namespace: devoops
 spec:
-  version: 7.13.0
+  version: 7.14.0
   count: 1
   config: 
     server.rewriteBasePath: true
     server.basePath: "/kibana"
+    server.publicBaseUrl: "http://kubernetes.docker.internal/kibana"  
   http:
     tls:
       selfSignedCertificate:
@@ -213,7 +214,7 @@ metadata:
   name: apmdev
   namespace: devoops
 spec:
-  version: 7.13.0
+  version: 7.14.0
   count: 1
   config:
     apm-server.secret_token: "devoops!"
