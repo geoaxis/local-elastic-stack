@@ -33,7 +33,7 @@ metadata:
   namespace: devoops
 spec:
   type: filebeat
-  version: 7.14.0
+  version: 7.15.1
   elasticsearchRef:
     name: esdev
   kibanaRef:
@@ -148,7 +148,7 @@ metadata:
   name: esdev
   namespace: devoops
 spec:
-  version: 7.14.0
+  version: 7.15.1
   nodeSets:
   - name: default
     count: 1
@@ -176,7 +176,7 @@ metadata:
   name: kbdev
   namespace: devoops
 spec:
-  version: 7.14.0
+  version: 7.15.1
   count: 1
   config: 
     server.rewriteBasePath: true
@@ -214,7 +214,7 @@ metadata:
   name: apmdev
   namespace: devoops
 spec:
-  version: 7.14.0
+  version: 7.15.1
   count: 1
   config:
     apm-server.secret_token: "devoops!"
@@ -252,6 +252,7 @@ metadata:
   name: kbdev-kb-http-ingress
   namespace: devoops
 spec:
+  ingressClassName: nginx   
   rules:
     - http:
         paths:
