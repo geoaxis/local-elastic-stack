@@ -15,8 +15,9 @@ All elastic operator stuff is installed in elastic-system, while the stack it sl
 - Install [ECK](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-deploy-eck.html).
 
 ```
-kubectl create -f https://download.elastic.co/downloads/eck/1.9.1/crds.yaml
-kubectl apply -f https://download.elastic.co/downloads/eck/1.9.1/operator.yaml
+kubectl create -f https://download.elastic.co/downloads/eck/2.9.0/crds.yaml
+kubectl apply -f https://download.elastic.co/downloads/eck/2.9.0/operator.yaml
+
 ```
 
 - Install nginx ingress using [helm quickstart](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start).

@@ -35,7 +35,7 @@ metadata:
   name: esdev
   namespace: devoops
 spec:
-  version: 7.17.0
+  version: 8.9.0
   nodeSets:
   - name: default
     count: 1
@@ -53,8 +53,9 @@ spec:
             limits:
               memory: 2Gi    
     config:
-      # This setting could have performance implications for production clusters.
-      # See: https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-virtual-memory.html
+      # most Elasticsearch configuration parameters are possible to set, e.g: node.attr.attr_name: attr_value
+      node.roles: ["master", "data", "ingest", "ml"]
+      # this allows ES to run on nodes even if their vm.max_map_count has not been increased, at a performance cost
       node.store.allow_mmap: false
 ---
 #Kibana with SSL disabled
@@ -64,12 +65,15 @@ metadata:
   name: kbdev
   namespace: devoops
 spec:
-  version: 7.17.0
+  version: 8.9.0
   count: 1
   config: 
     server.rewriteBasePath: true
     server.basePath: "/kibana"
     server.publicBaseUrl: "http://kubernetes.docker.internal/kibana"  
+    xpack.fleet.packages:
+    - name: apm
+      version: latest
   http:
     tls:
       selfSignedCertificate:
@@ -103,10 +107,10 @@ metadata:
   name: apmdev
   namespace: devoops
 spec:
-  version: 7.17.0
+  version: 8.9.0
   count: 1
   config:
-    apm-server.secret_token: "devoops!"
+    apm-server.auth.secret_token: "devoops!"
     apm-server.kibana.path: "/kibana"
     apm-server.ssl.enabled: false
     apm-server.kibana.ssl.enabled: false  
@@ -149,7 +153,7 @@ metadata:
   namespace: devoops
 spec:
   type: filebeat
-  version: 7.17.0
+  version: 8.9.0
   elasticsearchRef:
     name: esdev
   kibanaRef:
@@ -227,15 +231,9 @@ metadata:
   name: filebeat
   namespace: devoops
 rules:
-  - apiGroups: [""] # "" indicates the core API group
-    resources:
-      - namespaces
-      - pods
-      - nodes
-    verbs:
-      - get
-      - watch
-      - list
+  - apiGroups: ['*']
+    resources: ['*']
+    verbs: ['*']
 ---
 #Filebeat service account
 apiVersion: v1
@@ -286,6 +284,7 @@ metadata:
   name: apm-http-ingress
   namespace: devoops
   annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
@@ -298,4 +297,4 @@ spec:
                 port:
                   number: 8200
             path: /apm(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
