@@ -10,6 +10,18 @@ metadata:
     elastic.co/eula: accepted
 
 ---
+# self signed certificate 
+apiVersion: v1
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURuRENDQW9TZ0F3SUJBZ0lVQXNFZk1jcit0MTR2R3hHK2Y2VzY3V2tzMHhVd0RRWUpLb1pJaHZjTkFRRUwKQlFBd1NqRWpNQ0VHQTFVRUF3d2FhM1ZpWlhKdVpYUmxjeTVrYjJOclpYSXVhVzUwWlhKdVlXd3hJekFoQmdOVgpCQW9NR210MVltVnlibVYwWlhNdVpHOWphMlZ5TG1sdWRHVnlibUZzTUI0WERUSXpNVEV3TlRFNE1UVXhOMW9YCkRUSTBNVEV3TkRFNE1UVXhOMW93U2pFak1DRUdBMVVFQXd3YWEzVmlaWEp1WlhSbGN5NWtiMk5yWlhJdWFXNTAKWlhKdVlXd3hJekFoQmdOVkJBb01HbXQxWW1WeWJtVjBaWE11Wkc5amEyVnlMbWx1ZEdWeWJtRnNNSUlCSWpBTgpCZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUE0bUFOY1hxVEJDOVF2SWt5QjFPVGF1S1dJbE5ICmM1eHp3elF5T0sydUVadjFIdUpEbDRKeFBCdnNBckorTVhPckt3Tkc3MWcwQnNFVG51YVZEUHkybms1VGZocmMKcUZNaGFlaUhRam5aU2lJWjBEM09YNkVUZkhYelFaa0tUR2I5cEhzQ2pKNVdsVHY4Y2xvdUNoL0R6QS81VE5PZwoyaTZBRVlRWFRPZGQybHBaMXYwZmR4cVNJemdYQ1hMUHhZL1NQeUtscmZZNzJsT24vbDMvR1JPVmVBbGpFalVSCkpvdTlteVlNZTB1cTZ4Y0cvQ0NtVVNPeXQ4bVB6VVJNWU5ZZ2RmSTh2ay96Q0dldVNZdkxkVm1sNnZ1OUQ5RUoKRTBJSXhWQXpDNFZYMDN6bnhtVnRVdjNlSUxXWkRoQU9MaGJFdzBzYklyZ0RxUDJGSkxjTU1KSnFMd0lEQVFBQgpvM293ZURBZEJnTlZIUTRFRmdRVWN6aE5YN01paERHaWFuUEdBRGVxamZhVXZWMHdId1lEVlIwakJCZ3dGb0FVCmN6aE5YN01paERHaWFuUEdBRGVxamZhVXZWMHdEd1lEVlIwVEFRSC9CQVV3QXdFQi96QWxCZ05WSFJFRUhqQWMKZ2hwcmRXSmxjbTVsZEdWekxtUnZZMnRsY2k1cGJuUmxjbTVoYkRBTkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQQp6K0FJWGdFbkFhUlZPK3p1MUJGM29xQkliRmNvSXEvNk1MZzZuMDR2RVR6VGcrRzZlVXVIcElNNGoybzRpUm9hCi9CQXRIMnNDNzYzNHl0eXh5Sll1VFgySXZHNGRkem9xdXJ6OG9sNGFGOVBvYkVUcEpYSU1nMTQ3bEZjOVE3VWQKQnp3blpYc0FwUUx0R1lFSDFpRFhZWkRGeDI4U2dqaStuMkRtNWY1bUM2czVuQTdjM0VZUUs0SmFubGgzUUlXUwp6RlNzUEZmbHNqaUdxd1BpY2hIaW9xZHBmcUl5YjVIaWdMQ1haMnRTazQrRVFpcHRFWnllYVF3Yzk0cWVRNFg2ClZTQXJGZ1dWZm9LV3hBQTA2VVBXWXA0cXc0L25oWjNZUjhaZGFQTGVvalRUMWx5aisrTHdTVm1UcVhwQmZnd3IKUXduUXBuTTE0eUUrc2FGK25pc1c5QT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+  tls.key: LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRRGlZQTF4ZXBNRUwxQzgKaVRJSFU1TnE0cFlpVTBkem5IUEROREk0cmE0Um0vVWU0a09YZ25FOEcrd0NzbjR4YzZzckEwYnZXRFFHd1JPZQo1cFVNL0xhZVRsTitHdHlvVXlGcDZJZENPZGxLSWhuUVBjNWZvUk44ZGZOQm1RcE1adjJrZXdLTW5sYVZPL3h5CldpNEtIOFBNRC9sTTA2RGFMb0FSaEJkTTUxM2FXbG5XL1I5M0dwSWpPQmNKY3MvRmo5SS9JcVd0OWp2YVU2ZisKWGY4WkU1VjRDV01TTlJFbWk3MmJKZ3g3UzZyckZ3YjhJS1pSSTdLM3lZL05SRXhnMWlCMThqeStUL01JWjY1SgppOHQxV2FYcSs3MFAwUWtUUWdqRlVETUxoVmZUZk9mR1pXMVMvZDRndFprT0VBNHVGc1REU3hzaXVBT28vWVVrCnR3d3drbW92QWdNQkFBRUNnZ0VBSENmSjN1c3ZFdU9zVW9RV2hWa1hQNWJjQ1NhUTFLZkpCdEV4OStFSTErYlgKc2hZcFJhbXpMMnMzb1BtVi9zem9wVlVSMkY0QTVvclN4NzR5Y1ZHVE14V3NobkEzMi9XdTlROE1sNmVUUjRoVApRVUVXcngweWRtdERMS0wrRXIrZE1pZkhOWThuVjF0YWR0YzhNbHArRGZPUFZISUpQUlJ3Z3YwMHNBWWlJd1h0CmZ5UzNPa215U0FRQ2dBcmp3MnRYdFVYUFVVbGl3UFNaQ2x4dVhJY3hOckswOXp6d2RGa0RoWWhNT0lCcUVpWTcKTDJ2dGM2UVpaT3E0d2lObS9VN3J3R1ZybS9oV2xzLy9YTUhBdzZKakJ3YURYdzFhSXIweE5yaXJHbjVrMnU1cwp5aEtRbDB6N292OFJCM3d6VlpGazErOGcyeWJ4V3V4cVBJTjNVUFpLWlFLQmdRRGtjRHFYUmQ4L1VldGVXWWUvCmRKT1VaZ0tQWVlwTVAxdUx2SVNnMmQvbE5WS2djZzNha0kzZC9SdUJtbDRVSUhkN3h3aE5zODAyUW1vNHV6Z1kKenVaTUJqZ1RSWE9yMmZMeWJoY0VuN1JIV1RIamxIelBHNUtWRUVPT2hPTWJhZTM0NGJVT2wxcmRJa2NrSkVqdQpKTkpuS1dPNWVDeG9NYTR4b0VyeTlqc1RSUUtCZ1FEOXNCa1UvNHN4ZzhZaUoybkNOQ3YxdUNuaUU2M25kZGlZCkV0YnhYMFFzc21DTW83U0JWeFhiUkI2VHdJWFRJeDRNbjY0ZUUyekRSTzlGVklmQU03Uk5WTXBxS3ZWS29FLysKUGlIRXZvd0U3Vy9PRXVxSm1lZlVCZm92dFp1SHV4Q3l0cFZlK1FTODM2dy9qcHoxQVl0YU9hTnZUd3NmZE0zMwoxcXpGSE9wRTR3S0JnQXA5NVJNQmtJbFY5OXR6ZlRxYjNoTll4QkZWeDRaTStxVm1XU2tTR0toc1ZJa3Q4OWp2Ci9yUU5aZkFENlFJL28zMDUzUFhFcGs0eHFyTkVWZ1U5cTNJZWJ3RGpsYlowNGlXa1RNWlhsMjRYZUtVZE1zWkkKVytrZ3dCbVJuT1NyYnRTWmVUbGNWajRGendLbjcvbVFFMkhOa3RqMzNnSkRGZDhObjZPZEQ0V0pBb0dCQUkyOAp2Y2JGbi9kaU1Ha1VyRG9jL0JLbGVvRWRqYVFzYTM5THgxdkVaa3F5dnM3VkNCemJreEtXMUo2b2loeVZHa3pqClNsenpiV2tNTXNNQm4zYjdiRmxvYms4ekFTbFl1RmpNVGdHbWxJU01SRk5XcmtPREFjdXNLMFJNcTBFQ2V5bmUKYVVaT3l4N2J1VmtwVFBoMmpHMDBsdU94dmYwdFBZYWpJcFJldTJVUkFvR0JBSzBuVmNNT202Qy9pc1JhN0xregpzbTBvR3dRR1Q0WHE0Y3RZa2JrbHF5U1VqZDlZejVPSWlMSTJyN2NkMXdNZlBOQk1qdzM0SWlNSUhOWlQ5MXg5CkRLa1R1dHlIUjgydWtMV3NPWUEwSHN1NmQybEtwWVdvVjI3VHI3a3ZmUzlsTmJnSTZkeHJCeEFTM0w5NXdRRkMKS2xmcXdwVDBVUEF5ekE3eVhaTjVlV3ByCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K
+kind: Secret
+metadata:
+  name: self-signed-tls
+  namespace: devoops
+
+
+---
 #A namespace for all the elastic components
 apiVersion: v1
 kind: Namespace
@@ -35,7 +47,7 @@ metadata:
   name: esdev
   namespace: devoops
 spec:
-  version: 8.9.0
+  version: 8.10.4
   nodeSets:
   - name: default
     count: 1
@@ -65,7 +77,7 @@ metadata:
   name: kbdev
   namespace: devoops
 spec:
-  version: 8.9.0
+  version: 8.10.4
   count: 1
   config: 
     server.rewriteBasePath: true
@@ -107,7 +119,7 @@ metadata:
   name: apmdev
   namespace: devoops
 spec:
-  version: 8.9.0
+  version: 8.10.4
   count: 1
   config:
     apm-server.auth.secret_token: "devoops!"
@@ -153,7 +165,7 @@ metadata:
   namespace: devoops
 spec:
   type: filebeat
-  version: 8.9.0
+  version: 8.10.4
   elasticsearchRef:
     name: esdev
   kibanaRef:
@@ -264,9 +276,14 @@ metadata:
   name: kbdev-kb-http-ingress
   namespace: devoops
 spec:
-  ingressClassName: nginx   
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - kubernetes.docker.internal
+    secretName: self-signed-tls 
   rules:
-    - http:
+    - host: kubernetes.docker.internal
+      http:
         paths:
           - backend:
               service:
@@ -288,8 +305,13 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - kubernetes.docker.internal
+    secretName: self-signed-tls 
   rules:
-    - http:
+    - host: kubernetes.docker.internal
+      http:
         paths:
           - backend:
               service:
