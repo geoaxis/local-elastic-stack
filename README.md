@@ -20,14 +20,18 @@ All elastic operator stuff is installed in `elastic-system` namespace, while the
 - Install [ECK](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-deploy-eck.html).
 
 ```
-kubectl create -f https://download.elastic.co/downloads/eck/2.9.0/crds.yaml
-kubectl apply -f https://download.elastic.co/downloads/eck/2.9.0/operator.yaml
+kubectl create -f https://download.elastic.co/downloads/eck/2.10.0/crds.yaml
+kubectl apply -f https://download.elastic.co/downloads/eck/2.10.0/operator.yaml
 
 ```
+
+
 
 - Install nginx ingress using [helm quickstart](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start).
 ```
-helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace
+kubectl create namespace ingress-nginx;
+helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace --set controller.config.compute-full-forwarded-for='"true"' --set controller.config.use-forwarded-headers='"true"' --set controller.extraArgs.default-ssl-certificate=ingress-nginx/nginx-tls-secret;
+
 ```
 
 - Apply the all-in-one.yml using 
