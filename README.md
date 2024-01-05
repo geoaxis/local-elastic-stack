@@ -30,6 +30,7 @@ kubectl apply -f https://download.elastic.co/downloads/eck/2.10.0/operator.yaml
 - Install nginx ingress using [helm quickstart](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start).
 ```
 kubectl create namespace ingress-nginx;
+kubectl create -n ingress-nginx secret tls nginx-tls-secret --cert=server.crt --key=server.key
 helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace --set controller.config.compute-full-forwarded-for='"true"' --set controller.config.use-forwarded-headers='"true"' --set controller.extraArgs.default-ssl-certificate=ingress-nginx/nginx-tls-secret;
 
 ```
@@ -39,6 +40,7 @@ helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.git
 kubectl apply -f all-in-one.yaml
 ```
 
+- We used a certificate in the step where we created nginx-tls-secret. To use the certificate just add it to your browser ( on windows it can be done by right clicking the crt file)
 - Browse to http://kubernetes.docker.internal/kibana and use elastic/elastic to login. You can also port forward kibana as following
 
 ```
