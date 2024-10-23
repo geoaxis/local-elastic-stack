@@ -35,7 +35,7 @@ metadata:
   name: esdev
   namespace: devoops
 spec:
-  version: 8.11.1
+  version: 8.15.3
   nodeSets:
   - name: default
     count: 1
@@ -65,7 +65,7 @@ metadata:
   name: kbdev
   namespace: devoops
 spec:
-  version: 8.11.1
+  version: 8.15.3
   count: 1
   config: 
     server.rewriteBasePath: true
@@ -107,7 +107,7 @@ metadata:
   name: apmdev
   namespace: devoops
 spec:
-  version: 8.11.1
+  version: 8.15.3
   count: 1
   config:
     apm-server.auth.secret_token: "devoops!"
@@ -153,7 +153,7 @@ metadata:
   namespace: devoops
 spec:
   type: filebeat
-  version: 8.11.1
+  version: 8.15.3
   elasticsearchRef:
     name: esdev
   kibanaRef:
