@@ -1,11 +1,11 @@
 # local-elastic-stack
-A simple one stop setup to start a local elastic stack on k8s. 
+A simple one stop setup to start a local elastic stack on k8s using minikube. 
 
 It uses ECK Operator (which is installed using kubectl). 
 
-As an optional step this setup uses Ingress-Nginx (which is installed using helm). 
+As an optional step this setup uses Ingress-Nginx (which is enabled using minikube plugins). 
 
-To make life easier a self signed certificate is provided. You can install it on your PC as a trusted authority to not get any warnings when using `https`` urls. 
+To make life easier a self signed certificate is provided. You can install it on your OS  as a trusted authority to not get any warnings when using `https`` urls. 
 
 All elastic operator stuff is installed in `elastic-system` namespace, while the stack it slef (elasticsearch, kibana, beats, apm) are  installed in a namespace called [devoops](https://www.youtube.com/watch?v=Pg3uPXTDFbk). Ingress pods are installed in in the `ingress-nginx` namespace.
 
@@ -13,10 +13,10 @@ All elastic operator stuff is installed in `elastic-system` namespace, while the
 
 
 ## Steps
-- Install [Docker for Desktop](https://docs.docker.com/engine/install/). You can probably use this setup on minikube, but it has not been tested.
-- Enable [kubernetes](https://docs.docker.com/desktop/kubernetes/) on your docker setup.  Make sure you have sufficent resources available. The setup has been tested on Mac and Windows.
+- Install Minikube on your environment. https://minikube.sigs.k8s.io/docs/ (I have tested it using Fedora and kvm2). You can also  use this setup using k8s from Docker for Desktop, but that was not tested with this version of documentation.
+- Make sure you have sufficent resources available. I have the following 
 - Confirm that your kubernetes setup is working by checking `kubectl get pods`  and/or `kubectl get nodes` 
-- Make sure that `kubernetes.docker.internal` DNS name resolves to `127.0.0.1` i.e. run `nslookup kubernetes.docker.internal` and check the result. Look at settings for your docker for desktop. Otherwise edit `/etc/hosts` file for your machine. 
+- Make sure that `kubernetes.docker.internal` DNS name resolves to the IP of k8 pod i.e. run `nslookup kubernetes.docker.internal` and check the result.
 - Install [ECK](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-deploy-eck.html).
 
 ```
@@ -25,15 +25,24 @@ kubectl apply -f https://download.elastic.co/downloads/eck/2.14.0/operator.yaml
 
 ```
 
-
-
-- Install nginx ingress using [helm quickstart](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start).
+Create a tls secret 
 ```
-kubectl create namespace ingress-nginx;
-kubectl create -n ingress-nginx secret tls nginx-tls-secret --cert=server.crt --key=server.key
-helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace --set controller.config.compute-full-forwarded-for='"true"' --set controller.config.use-forwarded-headers='"true"' --set controller.extraArgs.default-ssl-certificate=ingress-nginx/nginx-tls-secret;
+ kubectl -n kube-system create secret tls mkcert --key server.key --cert server.crt
+```
+
+Then 
+```
+minikube addons configure ingress
+```
+-- Enter custom cert(format is "namespace/secret"): kube-system/mkcert
+
+and disable and enable ingress 
 
 ```
+minikube addons disable ingress
+minikube addons enable ingress
+```
+
 
 - Apply the all-in-one.yml using 
 ```
